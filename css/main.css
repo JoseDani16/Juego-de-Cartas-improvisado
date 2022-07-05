@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: rgba(210, 105, 30, 0.500);
+    display: flex;
+    justify-content: center;
+}
+
+.mazo {
+    background-color: black;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.carta {
+    background-color: royalblue;
+    width: 90px;
+    height: 160px;
+    margin: 10px;
+}
+.carta-int {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: transparent;
+    transition: all 0.5s 0.05s;
+}
+.carta-int:hover {
+    background-color: blue;
+}
+.activador {
+    width: 110px;
+    height: 45px;
+    margin: 10px 0 10px 0;
+    color: aliceblue;
+    text-transform: uppercase;
+    background-color: black;
+    border-radius: 15px;
+    font-family: 'Trispace', sans-serif;
+    border: solid 1px white;
+    transition: all 0.2s;
+}
+.activador:hover {
+    background-color: rgb(30, 30, 30);
+    cursor: pointer;
+}
+.consola {
+    background-color: black;
+    min-width: 400px;
+    min-height: 100px;
+}
+ul {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+li{
+    margin: 10px 0 10px 0 ;
+    text-transform: capitalize;
+    color: aliceblue;
+    font-family: 'Trispace', sans-serif;
+    list-style: none;
+}
