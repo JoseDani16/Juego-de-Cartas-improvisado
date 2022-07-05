@@ -8,9 +8,9 @@ class Carta {
 }
 
 
-const carta1 = new Carta('carta1', 'agua', 10, 11)
-const carta2 = new Carta('carta2', 'fuego', 16, 5)
-const carta3 = new Carta('carta3', 'planta', 9, 13)
+const carta1 = new Carta('Squirtle', 'agua', 10, 11)
+const carta2 = new Carta('Charmander', 'fuego', 16, 5)
+const carta3 = new Carta('Bulbasaur', 'planta', 9, 13)
 
 
 const elemental = (x, y) => {
@@ -120,7 +120,6 @@ const puntos1 = []
 const puntos2 = []
 const fraseo = []
 
-fraseo.join(puntos1)
 const aporahora = (x, y) => {
     switch (atqVsAtq2(x, y)) {
         case x:
@@ -179,15 +178,15 @@ const definitiva = (x, y) => {
     aporahora(x, y)
     switch (puntos1.length > puntos2.length) {
         case true:
-            fraseo.push('Ha ganado  ' + x.nombre+'!')
+            fraseo.push('Ha ganado  ' + x.nombre+'! '+puntos1.length+' puntos a '+puntos2.length)
             break;
 
         case false:
             if (puntos1.length < puntos2.length) {
-                fraseo.push('Ha ganado ' + y.nombre+'!')
+                fraseo.push('Ha ganado ' + y.nombre+'! '+puntos2.length+' puntos a '+puntos1.length)
 
             } else {
-                fraseo.push(x.nombre + ' y ' + y.nombre + ' han empatado!')
+                fraseo.push(x.nombre + ' y ' + y.nombre + ' han empatado! '+puntos1.length+' puntos a '+puntos2.length)
             }
             break;
     }
@@ -203,16 +202,19 @@ boton1.addEventListener('click', () => {
     if (arreglito.length < 2) {
         arreglito.push(carta1)
     }
+    textoConsola.innerHTML = '<li>'+arreglito[0].nombre+' vs '+arreglito[1].nombre+'</li>'
 })
 boton2.addEventListener('click', () => {
     if (arreglito.length < 2) {
         arreglito.push(carta2)
     }
+    textoConsola.innerHTML = '<li>'+arreglito[0].nombre+' vs '+arreglito[1].nombre+'</li>'
 })
 boton3.addEventListener('click', () => {
     if (arreglito.length < 2) {
         arreglito.push(carta3)
     }
+    textoConsola.innerHTML = '<li>'+arreglito[0].nombre+' vs '+arreglito[1].nombre+'</li>'
 })
 
 let textoConsola = document.getElementById('text')
@@ -224,13 +226,13 @@ form.onsubmit = (a) => {
     a.preventDefault()
     if (arreglito.length == 2) {
         definitiva(arreglito[0], arreglito[1])
-        arreglito.splice(0, 2)
     } else {
         fraseo.push('faltan oponentes!')
     }
-
+    
     const textTemplate = fraseo.map((x) => {
         return '<li>' + x + '</li>';
     })
-    textoConsola.innerHTML = textTemplate.join('')
+    textoConsola.innerHTML = '<li>'+arreglito[0].nombre+' vs '+arreglito[1].nombre+'</li>'+'/n'+textTemplate.join('')
+    arreglito.splice(0, 2)
 }
