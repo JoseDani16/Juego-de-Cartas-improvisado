@@ -6,11 +6,12 @@ body {
     background-color: black;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
+
 
 .mazo {
     background-color: black;
-    width: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -50,7 +51,6 @@ body {
 }
 .consola {
     background-color: black;
-    min-width: 400px;
     min-height: 100px;
 }
 ul {
