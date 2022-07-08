@@ -422,20 +422,18 @@ boton27.addEventListener('click', () => {
 let textoConsola = document.getElementById('text')
 
 form.onsubmit = (a) => {
-    console.log(arreglito)
+    a.preventDefault()
     puntos1.splice(0, puntos1.length)
     puntos2.splice(0, puntos2.length)
     fraseo.splice(0, fraseo.length)
-    a.preventDefault()
     if (arreglito.length == 2) {
         definitiva(arreglito[0], arreglito[1])
+        const textTemplate = fraseo.map((x) => {
+            return '<li>' + x + '</li>';
+        })
+        textoConsola.innerHTML = '<li>' + arreglito[0].nombre + '(' + arreglito[0].atributo + ')' + ' vs ' + arreglito[1].nombre+ '(' + arreglito[1].atributo+ ')' + '</li>' + '/n' + textTemplate.join('')
     } else {
-        fraseo.push('faltan oponentes!')
+        textoConsola.innerHTML = '<li>faltan oponentes!</li>'
     }
-
-    const textTemplate = fraseo.map((x) => {
-        return '<li>' + x + '</li>';
-    })
-    textoConsola.innerHTML = '<li>' + arreglito[0].nombre + ' vs ' + arreglito[1].nombre + '</li>' + '/n' + textTemplate.join('')
     arreglito.splice(0, 2)
 }
