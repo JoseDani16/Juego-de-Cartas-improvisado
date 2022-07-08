@@ -13,8 +13,9 @@ body {
 .mazo {
     background-color: black;
     display: flex;
-    flex-direction: column;
+    flex-direction:row;
     align-items: center;
+    flex-wrap: wrap;
 }
 .carta {
     background-color: black;
@@ -52,6 +53,9 @@ body {
 .consola {
     background-color: black;
     min-height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 ul {
     height: 100%;
@@ -68,19 +72,163 @@ li{
 }
 
 #boton1 {
-    background-image: url(../assets/580b57fcd9996e24bc43c32a.png);
+    background-image: url(../nokemonsimg/1.png);
     background-size:contain;
     background-repeat: no-repeat;
     background-position: center;
 }
 #boton2 {
-    background-image: url(../assets/Charmander-PNG-HD.png);
+    background-image: url(../nokemonsimg/2.png);
     background-size:contain;
     background-repeat: no-repeat;
     background-position: center;
 }
 #boton3 {
-    background-image: url(../assets/Bulbasaur-PNG-Photos.png);
+    background-image: url(../nokemonsimg/3.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#boton4 {
+    background-image: url(../nokemonsimg/7.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#boton5 {
+    background-image: url(../nokemonsimg/8.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#boton6 {
+    background-image: url(../nokemonsimg/9.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#boton7 {
+    background-image: url(../nokemonsimg/10.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#boton8 {
+    background-image: url(../nokemonsimg/11.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#boton9 {
+    background-image: url(../nokemonsimg/12.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#boton10 {
+    background-image: url(../nokemonsimg/16.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#boton11 {
+    background-image: url(../nokemonsimg/17.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#boton12 {
+    background-image: url(../nokemonsimg/18.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#boton13 {
+    background-image: url(../nokemonsimg/13.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#boton14 {
+    background-image: url(../nokemonsimg/14.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#boton15 {
+    background-image: url(../nokemonsimg/15.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#boton16 {
+    background-image: url(../nokemonsimg/19.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#boton17 {
+    background-image: url(../nokemonsimg/20.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#boton18 {
+    background-image: url(../nokemonsimg/21.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#boton19 {
+    background-image: url(../nokemonsimg/4.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#boton20 {
+    background-image: url(../nokemonsimg/5.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#boton21 {
+    background-image: url(../nokemonsimg/6.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#boton22 {
+    background-image: url(../nokemonsimg/25.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#boton23 {
+    background-image: url(../nokemonsimg/26.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#boton24 {
+    background-image: url(../nokemonsimg/27.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#boton25 {
+    background-image: url(../nokemonsimg/22.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#boton26 {
+    background-image: url(../nokemonsimg/23.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#boton27 {
+    background-image: url(../nokemonsimg/24.png);
     background-size:contain;
     background-repeat: no-repeat;
     background-position: center;
