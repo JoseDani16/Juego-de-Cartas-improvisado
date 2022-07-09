@@ -423,6 +423,7 @@ let textoConsola = document.getElementById('text')
 
 form.onsubmit = (a) => {
     a.preventDefault()
+    window.scrollTo(0, document.body.scrollHeight)
     puntos1.splice(0, puntos1.length)
     puntos2.splice(0, puntos2.length)
     fraseo.splice(0, fraseo.length)
