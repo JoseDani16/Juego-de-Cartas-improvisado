@@ -8,33 +8,33 @@ class Carta {
 }
 let arreglito = []
 
-const carta1 = new Carta('Veyvur', 'agua', 11, 11)
-const carta2 = new Carta('Roxaen', 'agua', 16, 6)
-const carta3 = new Carta('Fauhye', 'agua', 11, 13)
-const carta4 = new Carta('Sigian', 'fuego', 6, 18)
-const carta5 = new Carta('Reypeo', 'fuego', 12, 12)
-const carta6 = new Carta('Mouvay', 'fuego', 18, 4)
-const carta7 = new Carta('Buzayn', 'planta', 8, 15)
-const carta8 = new Carta('Sienpi', 'planta', 11, 12)
-const carta9 = new Carta('Elcogi', 'planta', 5, 20)
-const carta10 = new Carta('Zusaso', 'roca', 13, 13)
-const carta11 = new Carta('Inorza', 'roca', 8, 20)
-const carta12 = new Carta('Butelu', 'roca', 7, 18)
-const carta13 = new Carta('Isvuos', 'hielo', 15, 11)
-const carta14 = new Carta('Nocyon', 'hielo', 10, 15)
-const carta15 = new Carta('Soisar', 'hielo', 12, 12)
-const carta16 = new Carta('Woceyr', 'normal', 13, 11)
-const carta17 = new Carta('Esleir', 'normal', 12, 12)
-const carta18 = new Carta('Sarife', 'normal', 11, 11)
-const carta19 = new Carta('Saomua', 'tierra', 17, 7)
-const carta20 = new Carta('Favaol', 'tierra', 12, 13)
-const carta21 = new Carta('Woecuo', 'tierra', 8, 20)
-const carta22 = new Carta('Ceriti', 'volador', 17, 8)
-const carta23 = new Carta('Tedoma', 'volador', 10, 12)
-const carta24 = new Carta('Heifai', 'volador', 10, 10)
-const carta25 = new Carta('Mebemo', 'lucha', 10, 10)
-const carta26 = new Carta('Lipoen', 'lucha', 11, 11)
-const carta27 = new Carta('Fiuplo', 'lucha', 9, 9)
+const noke1 = new Carta('Veyvur', 'agua', 11, 11)
+const noke2 = new Carta('Roxaen', 'agua', 16, 6)
+const noke3 = new Carta('Fauhye', 'agua', 11, 13)
+const noke4 = new Carta('Sigian', 'fuego', 6, 18)
+const noke5 = new Carta('Reypeo', 'fuego', 12, 12)
+const noke6 = new Carta('Mouvay', 'fuego', 18, 4)
+const noke7 = new Carta('Buzayn', 'planta', 8, 15)
+const noke8 = new Carta('Sienpi', 'planta', 11, 12)
+const noke9 = new Carta('Elcogi', 'planta', 5, 20)
+const noke10 = new Carta('Zusaso', 'roca', 13, 13)
+const noke11 = new Carta('Inorza', 'roca', 8, 20)
+const noke12 = new Carta('Butelu', 'roca', 7, 18)
+const noke13 = new Carta('Isvuos', 'hielo', 15, 11)
+const noke14 = new Carta('Nocyon', 'hielo', 10, 15)
+const noke15 = new Carta('Soisar', 'hielo', 12, 12)
+const noke16 = new Carta('Woceyr', 'normal', 13, 11)
+const noke17 = new Carta('Esleir', 'normal', 12, 12)
+const noke18 = new Carta('Sarife', 'normal', 11, 11)
+const noke19 = new Carta('Saomua', 'tierra', 17, 7)
+const noke20 = new Carta('Favaol', 'tierra', 12, 13)
+const noke21 = new Carta('Woecuo', 'tierra', 8, 20)
+const noke22 = new Carta('Ceriti', 'volador', 17, 8)
+const noke23 = new Carta('Tedoma', 'volador', 10, 12)
+const noke24 = new Carta('Heifai', 'volador', 10, 10)
+const noke25 = new Carta('Mebemo', 'lucha', 10, 10)
+const noke26 = new Carta('Lipoen', 'lucha', 11, 11)
+const noke27 = new Carta('Fiuplo', 'lucha', 9, 9)
 
 const elementalSync = (x, y, a, b, c, d) => {
     if (x.atributo == a) {
@@ -255,167 +255,188 @@ const boton24 = document.getElementById('boton24')
 const boton25 = document.getElementById('boton25')
 const boton26 = document.getElementById('boton26')
 const boton27 = document.getElementById('boton27')
+const carta1 = document.getElementById('carta1')
+const carta2 = document.getElementById('carta2')
+const carta3 = document.getElementById('carta3')
+const carta4 = document.getElementById('carta4')
+const carta5 = document.getElementById('carta5')
+const carta6 = document.getElementById('carta6')
+const carta7 = document.getElementById('carta7')
+const carta8 = document.getElementById('carta8')
+const carta9 = document.getElementById('carta9')
+const carta10 = document.getElementById('carta10')
+const carta11 = document.getElementById('carta11')
+const carta12 = document.getElementById('carta12')
+const carta13 = document.getElementById('carta13')
+const carta14 = document.getElementById('carta14')
+const carta15 = document.getElementById('carta15')
+const carta16 = document.getElementById('carta16')
+const carta17 = document.getElementById('carta17')
+const carta18 = document.getElementById('carta18')
+const carta19 = document.getElementById('carta19')
+const carta20 = document.getElementById('carta20')
+const carta21 = document.getElementById('carta21')
+const carta22 = document.getElementById('carta22')
+const carta23 = document.getElementById('carta23')
+const carta24 = document.getElementById('carta24')
+const carta25 = document.getElementById('carta25')
+const carta26 = document.getElementById('carta26')
+const carta27 = document.getElementById('carta27')
 
+
+
+cambioColorStorage = []
+function cambioColor(elemento) {
+    if (cambioColorStorage.length<2) {
+        cambioColorStorage.push(elemento)
+
+    }
+}
+function cambioColor2(elemento) {
+    cambioColor(elemento)
+    if (cambioColorStorage.length == 1) {
+        cambioColorStorage[0].style.backgroundColor = "rgba(233, 211, 14, 0.3)"
+    }
+    if (cambioColorStorage.length == 2) {
+        cambioColorStorage[1].style.backgroundColor = "rgba(233, 211, 14, 0.3)"
+    }
+    console.log(cambioColorStorage)
+}
 
 boton1.addEventListener('click', () => {
     if (arreglito.length < 2) {
-        arreglito.push(carta1)
+        arreglito.push(noke1)
     }
-
 })
 boton2.addEventListener('click', () => {
     if (arreglito.length < 2) {
-        arreglito.push(carta2)
-    }
+        arreglito.push(noke2)
 
+    }
 })
 boton3.addEventListener('click', () => {
     if (arreglito.length < 2) {
-        arreglito.push(carta3)
+        arreglito.push(noke3)
     }
-
 })
 boton4.addEventListener('click', () => {
     if (arreglito.length < 2) {
-        arreglito.push(carta4)
+        arreglito.push(noke4)
     }
-
 })
 boton5.addEventListener('click', () => {
     if (arreglito.length < 2) {
-        arreglito.push(carta5)
+        arreglito.push(noke5)
     }
-
 })
 boton6.addEventListener('click', () => {
     if (arreglito.length < 2) {
-        arreglito.push(carta6)
+        arreglito.push(noke6)
     }
-
 })
 boton7.addEventListener('click', () => {
     if (arreglito.length < 2) {
-        arreglito.push(carta7)
+        arreglito.push(noke7)
     }
-
 })
 boton8.addEventListener('click', () => {
     if (arreglito.length < 2) {
-        arreglito.push(carta8)
+        arreglito.push(noke8)
     }
-
 })
 boton9.addEventListener('click', () => {
     if (arreglito.length < 2) {
-        arreglito.push(carta9)
+        arreglito.push(noke9)
     }
-
 })
 boton10.addEventListener('click', () => {
     if (arreglito.length < 2) {
-        arreglito.push(carta10)
+        arreglito.push(noke10)
     }
-
 })
 boton11.addEventListener('click', () => {
     if (arreglito.length < 2) {
-        arreglito.push(carta11)
+        arreglito.push(noke11)
     }
-
 })
 boton12.addEventListener('click', () => {
     if (arreglito.length < 2) {
-        arreglito.push(carta12)
+        arreglito.push(noke12)
     }
-
 })
 boton13.addEventListener('click', () => {
     if (arreglito.length < 2) {
-        arreglito.push(carta13)
+        arreglito.push(noke13)
     }
-
 })
 boton14.addEventListener('click', () => {
     if (arreglito.length < 2) {
-        arreglito.push(carta14)
+        arreglito.push(noke14)
     }
-
 })
 boton15.addEventListener('click', () => {
     if (arreglito.length < 2) {
-        arreglito.push(carta15)
+        arreglito.push(noke15)
     }
-
 })
 boton16.addEventListener('click', () => {
     if (arreglito.length < 2) {
-        arreglito.push(carta16)
+        arreglito.push(noke16)
     }
-
 })
 boton17.addEventListener('click', () => {
     if (arreglito.length < 2) {
-        arreglito.push(carta17)
+        arreglito.push(noke17)
     }
-
 })
 boton18.addEventListener('click', () => {
     if (arreglito.length < 2) {
-        arreglito.push(carta18)
+        arreglito.push(noke18)
     }
-
 })
 boton19.addEventListener('click', () => {
     if (arreglito.length < 2) {
-        arreglito.push(carta19)
+        arreglito.push(noke19)
     }
-
 })
 boton20.addEventListener('click', () => {
     if (arreglito.length < 2) {
-        arreglito.push(carta20)
+        arreglito.push(noke20)
     }
-
 })
 boton21.addEventListener('click', () => {
     if (arreglito.length < 2) {
-        arreglito.push(carta21)
+        arreglito.push(noke21)
     }
-
 })
 boton22.addEventListener('click', () => {
     if (arreglito.length < 2) {
-        arreglito.push(carta22)
+        arreglito.push(noke22)
     }
-
 })
 boton23.addEventListener('click', () => {
     if (arreglito.length < 2) {
-        arreglito.push(carta23)
+        arreglito.push(noke23)
     }
-
 })
 boton24.addEventListener('click', () => {
     if (arreglito.length < 2) {
-        arreglito.push(carta24)
+        arreglito.push(noke24)
     }
-
 })
 boton25.addEventListener('click', () => {
     if (arreglito.length < 2) {
-        arreglito.push(carta25)
+        arreglito.push(noke25)
     }
-
 })
 boton26.addEventListener('click', () => {
     if (arreglito.length < 2) {
-        arreglito.push(carta26)
+        arreglito.push(noke26)
     }
-
 })
 boton27.addEventListener('click', () => {
     if (arreglito.length < 2) {
-        arreglito.push(carta27)
+        arreglito.push(noke27)
     }
 })
 
@@ -424,6 +445,9 @@ let textoConsola = document.getElementById('text')
 form.onsubmit = (a) => {
     a.preventDefault()
     window.scrollTo(0, document.body.scrollHeight)
+    cambioColorStorage[0].style.backgroundColor = "transparent"
+    cambioColorStorage[1].style.backgroundColor = "transparent"
+    cambioColorStorage.splice(0, 2)
     puntos1.splice(0, puntos1.length)
     puntos2.splice(0, puntos2.length)
     fraseo.splice(0, fraseo.length)

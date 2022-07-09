@@ -32,7 +32,9 @@ h1, h2 {
     width: 90px;
     height: 160px;
     margin: 10px;
+    border-radius: 15px;
 }
+
 .carta-int {
     width: 100%;
     height: 100%;
@@ -43,6 +45,9 @@ h1, h2 {
 }
 .carta-int:hover {
     background-color: rgba(255, 255, 255, 0.089);
+}
+.xxx {
+    color: rgba(233, 211, 14, 0.473);
 }
 .activador {
     width: 110px;
