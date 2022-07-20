@@ -8,7 +8,8 @@
     <title>Cartas Juego</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Trispace:wght@100&family=Yellowtail&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Trispace:wght@100&family=Yellowtail&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="css/main.css">
 </head>
@@ -16,6 +17,20 @@
 <body>
     <h1>Nokemon</h1>
     <h2>Elija dos Nokemon para luchar, y presionar el boton -Combatir ya!-</h2>
+    <div class="controles">
+        <div class="controles-a">
+            <button id="ataque-normal-a" class="activador">ataque</button>
+            <button id="ataque-esp-a" class="activador">ataque esp</button>
+            <button id="protegerse-a" class="activador">protegerse</button>
+            <div id="barra-de-vida-a" class="barra-de-vida"></div>
+        </div>
+        <div class="controles-b">
+            <button id="ataque-normal-b" class="activador">ataque</button>
+            <button id="ataque-esp-b" class="activador">ataque esp</button>
+            <button id="protegerse-b" class="activador">protegerse</button>
+            <div id="barra-de-vida-b" class="barra-de-vida"></div>
+        </div>
+    </div>
     <div class="mazo">
         <div id="carta1" onclick="cambioColor2(carta1)" class="carta">
 
@@ -23,7 +38,7 @@
         </div>
         <div id="carta2" onclick="cambioColor2(carta2)" class="carta">
             <input type="button" value="" id="boton2" class="carta-int">
-            
+
         </div>
         <div id="carta3" onclick="cambioColor2(carta3)" class="carta">
             <input type="button" value="" id="boton3" class="carta-int">
@@ -128,7 +143,7 @@
     </div>
     <div id="enviar">
         <form action="" id="form">
-            <input type="submit" class="activador" value="combatir ya">
+            <input type="submit" class="activador" value="listo">
         </form>
     </div>
     <div class="consola">
