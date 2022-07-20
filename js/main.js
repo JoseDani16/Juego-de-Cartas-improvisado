@@ -4,6 +4,7 @@ class Carta {
         this.atributo = atributo
         this.ataque = ataque
         this.defensa = defensa
+        this.salud = 100
     }
 }
 let arreglito = []
@@ -90,66 +91,6 @@ const elemental = (x, y) => {
     return resultado
 }
 
-const atqVsAtq = (x, y) => {
-    switch (x.ataque > y.ataque) {
-        case true:
-            return x.ataque - y.ataque
-            break;
-        case false:
-            if (x.ataque < y.ataque) {
-                return y.ataque - x.ataque
-
-            } else {
-                return 0
-            }
-            break;
-    }
-
-}
-const atqVsAtq2 = (x, y) => {
-    switch (x.ataque > y.ataque) {
-        case true:
-            return x
-            break;
-        case false:
-            if (x.ataque < y.ataque) {
-                return y
-            } else {
-                return 0
-            }
-            break;
-    }
-}
-const dfsVsDfs = (x, y) => {
-    switch (x.defensa > y.defensa) {
-        case true:
-            return x.defensa - y.defensa
-            break;
-        case false:
-            if (x.defensa < y.defensa) {
-                return y.defensa - x.defensa
-
-            } else {
-                return 0
-            }
-            break;
-    }
-
-}
-const dfsVsDfs2 = (x, y) => {
-    switch (x.defensa > y.defensa) {
-        case true:
-            return x
-            break;
-        case false:
-            if (x.defensa < y.defensa) {
-                return y
-            } else {
-                return 0
-            }
-            break;
-    }
-}
 
 
 const puntos1 = []
@@ -208,25 +149,10 @@ const aporahora = (x, y) => {
             break;
     }
 }
-const definitiva = (x, y) => {
-    aporahora(x, y)
-    switch (puntos1.length > puntos2.length) {
-        case true:
-            fraseo.push('Ha ganado  ' + x.nombre + '! ' + puntos1.length + ' puntos a ' + puntos2.length)
-            break;
 
-        case false:
-            if (puntos1.length < puntos2.length) {
-                fraseo.push('Ha ganado ' + y.nombre + '! ' + puntos2.length + ' puntos a ' + puntos1.length)
-
-            } else {
-                fraseo.push(x.nombre + ' y ' + y.nombre + ' han empatado! ' + puntos1.length + ' puntos a ' + puntos2.length)
-            }
-            break;
-    }
-}
 const form = document.getElementById('form')
 const elementos = document.querySelectorAll('#form input')
+
 
 const boton1 = document.getElementById('boton1')
 const boton2 = document.getElementById('boton2')
@@ -286,12 +212,14 @@ const carta27 = document.getElementById('carta27')
 
 
 cambioColorStorage = []
+
 function cambioColor(elemento) {
-    if (cambioColorStorage.length<2) {
+    if (cambioColorStorage.length < 2) {
         cambioColorStorage.push(elemento)
 
     }
 }
+
 function cambioColor2(elemento) {
     cambioColor(elemento)
     if (cambioColorStorage.length == 1) {
@@ -442,23 +370,127 @@ boton27.addEventListener('click', () => {
 
 let textoConsola = document.getElementById('text')
 
+
+let barraDeVidaA = document.getElementById('barra-de-vida-a')
+barraDeVidaA.innerHTML = `100`
+barraDeVidaA.style.width = '100px'
+barraDeVidaA.style.backgroundColor = 'red'
+let barraDeVidaB = document.getElementById('barra-de-vida-b')
+barraDeVidaB.innerHTML = `100`
+barraDeVidaB.style.width = '100px'
+barraDeVidaB.style.backgroundColor = 'red'
+
+/*+++++++++++++++++++++++++++++++ */
+/*+++++++++++++++++++++++++++++++ */
+
+function saludGestionA(damage) {
+    if (damage == 10) {
+        if (Math.random()>0.1) {
+            barraDeVidaA.style.width = `${arreglito[0].salud-damage}px`
+            arreglito[0].salud -= damage
+            barraDeVidaA.innerHTML = `${arreglito[0].salud}`
+        }
+        else {console.log('ha fallado el ataque')}
+        console.log(Math.random())
+    }
+    if (damage > 10) {
+        if (Math.random()>0.25) {
+            barraDeVidaA.style.width = `${arreglito[0].salud-damage}px`
+            arreglito[0].salud -= damage
+            barraDeVidaA.innerHTML = `${arreglito[0].salud}`
+        }
+        else {console.log('ha fallado el ataque')}
+        console.log(Math.random())
+    }
+
+}
+
+function saludGestionB(damage) {
+    if (damage == 10) {
+        if (Math.random()>0.1) {
+            barraDeVidaB.style.width = `${arreglito[1].salud-damage}px`
+            arreglito[1].salud -= damage
+            barraDeVidaB.innerHTML = `${arreglito[1].salud}`
+        }
+        else {console.log('ha fallado el ataque')}
+        console.log(Math.random())
+    }
+    if (damage > 10) {
+        if (Math.random()>0.25) {
+            barraDeVidaB.style.width = `${arreglito[1].salud-damage}px`
+            arreglito[1].salud -= damage
+            barraDeVidaB.innerHTML = `${arreglito[1].salud}`
+        }
+        else {console.log('ha fallado el ataque')}
+        console.log(Math.random())
+    }
+}
+let movEnEspera = []
+let movRecibido = []
+
+const atqBotonA = document.getElementById('ataque-normal-a')
+const atqEspBotonA = document.getElementById('ataque-esp-a')
+const atqBotonB = document.getElementById('ataque-normal-b')
+const atqEspBotonB = document.getElementById('ataque-esp-b')
+
+
+
+atqBotonA.addEventListener('click', () => {
+    if (movEnEspera.length < 1) {
+        movEnEspera.push(0)
+        console.log(movEnEspera)
+    }
+})
+
+atqEspBotonA.addEventListener('click', () => {
+    if (movEnEspera.length < 1) {
+        movEnEspera.push(1)
+        console.log(movEnEspera)
+    }
+})
+atqBotonB.addEventListener('click', () => {
+    if (movEnEspera.length == 1) {
+        movEnEspera.push(0)
+        console.log(movEnEspera)
+    }
+})
+
+atqEspBotonB.addEventListener('click', () => {
+    if (movEnEspera.length == 1) {
+        movEnEspera.push(1)
+        console.log(movEnEspera)
+    }
+})
 form.onsubmit = (a) => {
     a.preventDefault()
-    window.scrollTo(0, document.body.scrollHeight)
-    cambioColorStorage[0].style.backgroundColor = "transparent"
-    cambioColorStorage[1].style.backgroundColor = "transparent"
+    //window.scrollTo(0, document.body.scrollHeight)
+    /*cambioColorStorage[0].style.backgroundColor = "transparent"
+    cambioColorStorage[1].style.backgroundColor = "transparent"*/
+    /*----------------------*/
     cambioColorStorage.splice(0, 2)
+    movRecibido = movEnEspera
+    movEnEspera = []
+    if (movRecibido.length == 2 && arreglito.length == 2) {
+        switch (movRecibido[0]) {
+            case 0:
+                saludGestionB(10)
+                break;
+            case 1:
+                saludGestionB(15)
+                break;
+        }
+        switch (movRecibido[1]) {
+            case 0:
+                saludGestionA(10)
+                break;
+            case 1:
+                saludGestionA(15)
+                break;
+        }
+    }
+    /*---------------------- */
     puntos1.splice(0, puntos1.length)
     puntos2.splice(0, puntos2.length)
     fraseo.splice(0, fraseo.length)
-    if (arreglito.length == 2) {
-        definitiva(arreglito[0], arreglito[1])
-        const textTemplate = fraseo.map((x) => {
-            return '<li>' + x + '</li>';
-        })
-        textoConsola.innerHTML = '<li>' + arreglito[0].nombre + '(' + arreglito[0].atributo + ')' + ' vs ' + arreglito[1].nombre+ '(' + arreglito[1].atributo+ ')' + '</li>' + '/n' + textTemplate.join('')
-    } else {
-        textoConsola.innerHTML = '<li>faltan oponentes!</li>'
-    }
-    arreglito.splice(0, 2)
+
 }

@@ -77,6 +77,20 @@ h1, h2 {
     display: flex;
     justify-content: center;
 }
+.controles {
+    display: flex;
+}
+.controles-a {
+    margin: 10px;
+}
+.controles-b {
+    margin: 10px;
+}
+.barra-de-vida {
+margin: auto;
+text-align: center;
+border-radius: 15px;
+}
 ul {
     height: 100%;
     display: flex;

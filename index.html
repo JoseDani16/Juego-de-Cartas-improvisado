@@ -18,6 +18,20 @@
 <body>
     <h1>Nokemon</h1>
     <h2>Elija dos Nokemon para luchar, y presionar el boton -Combatir ya!-</h2>
+    <div class="controles">
+        <div class="controles-a">
+            <button id="ataque-normal-a" class="activador">ataque</button>
+            <button id="ataque-esp-a" class="activador">ataque esp</button>
+            <button id="protegerse-a" class="activador">protegerse</button>
+            <div id="barra-de-vida-a" class="barra-de-vida"></div>
+        </div>
+        <div class="controles-b">
+            <button id="ataque-normal-b" class="activador">ataque</button>
+            <button id="ataque-esp-b" class="activador">ataque esp</button>
+            <button id="protegerse-b" class="activador">protegerse</button>
+            <div id="barra-de-vida-b" class="barra-de-vida"></div>
+        </div>
+    </div>
     <div class="mazo">
         <div id="carta1" onclick="cambioColor2(carta1)" class="carta">
 
@@ -130,7 +144,7 @@
     </div>
     <div id="enviar">
         <form action="" id="form">
-            <input type="submit" class="activador" value="combatir ya">
+            <input type="submit" class="activador" value="listo">
         </form>
     </div>
     <div class="consola">
