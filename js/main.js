@@ -151,7 +151,7 @@ const aporahora = (x, y) => {
 }
 
 const form = document.getElementById('form')
-const elementos = document.querySelectorAll('#form input')
+const elementos = document.getElementsByTagName('#form input')
 
 
 const boton1 = document.getElementById('boton1')
@@ -220,6 +220,11 @@ function cambioColor(elemento) {
     }
 }
 
+let controlesA = document.getElementById('controles-a')
+let controlesB = document.getElementById('controles-b')
+controlesA.style.display = 'none'
+controlesB.style.display = 'none'
+
 function cambioColor2(elemento) {
     cambioColor(elemento)
     if (cambioColorStorage.length == 1) {
@@ -228,7 +233,12 @@ function cambioColor2(elemento) {
     if (cambioColorStorage.length == 2) {
         cambioColorStorage[1].style.backgroundColor = "rgba(233, 211, 14, 0.3)"
     }
-    console.log(cambioColorStorage)
+    if (arreglito.length < 2) {
+        controlesA.style.display = 'block'
+    }
+    if (arreglito.length == 2) {
+        controlesB.style.display = 'block'
+    }
 }
 
 boton1.addEventListener('click', () => {
@@ -379,51 +389,78 @@ let barraDeVidaB = document.getElementById('barra-de-vida-b')
 barraDeVidaB.innerHTML = `100`
 barraDeVidaB.style.width = '100px'
 barraDeVidaB.style.backgroundColor = 'red'
+/*+++++++++++++++++++++++++++++++ */
+
+
+
+
+
 
 /*+++++++++++++++++++++++++++++++ */
-/*+++++++++++++++++++++++++++++++ */
+let proteccionVarA = 0
+let proteccionVarB = 0
+const protBotonA = document.getElementById('protegerse-a')
+const protBotonB = document.getElementById('protegerse-b')
+
+protBotonA.addEventListener('click', () => {
+    if (movEnEspera.length < 1) {
+        movEnEspera.push(2)
+        proteccionVarA = arreglito[0].defensa / 26.7
+    }
+})
+protBotonB.addEventListener('click', () => {
+    if (movEnEspera.length == 1) {
+        movEnEspera.push(2)
+        proteccionVarB = arreglito[1].defensa / 26.7
+    }
+})
+
 
 function saludGestionA(damage) {
     if (damage == 10) {
-        if (Math.random()>0.1) {
+        if (Math.random() > (0.1 + proteccionVarA)) {
             barraDeVidaA.style.width = `${arreglito[0].salud-damage}px`
-            arreglito[0].salud -= damage
+            arreglito[0].salud -= damage + arreglito[1].ataque
             barraDeVidaA.innerHTML = `${arreglito[0].salud}`
+        } else {
+            console.log('ha fallado el ataque')
         }
-        else {console.log('ha fallado el ataque')}
-        console.log(Math.random())
+
     }
     if (damage > 10) {
-        if (Math.random()>0.25) {
+        if (Math.random() > (0.25 + proteccionVarA)) {
             barraDeVidaA.style.width = `${arreglito[0].salud-damage}px`
-            arreglito[0].salud -= damage
+            arreglito[0].salud -= damage + arreglito[1].ataque
             barraDeVidaA.innerHTML = `${arreglito[0].salud}`
+        } else {
+            console.log('ha fallado el ataque')
         }
-        else {console.log('ha fallado el ataque')}
-        console.log(Math.random())
-    }
 
+    }
+    proteccionVarB = 0
 }
+
 
 function saludGestionB(damage) {
     if (damage == 10) {
-        if (Math.random()>0.1) {
+        if (Math.random() > (0.1 + proteccionVarB)) {
             barraDeVidaB.style.width = `${arreglito[1].salud-damage}px`
-            arreglito[1].salud -= damage
+            arreglito[1].salud -= damage + arreglito[0].ataque
             barraDeVidaB.innerHTML = `${arreglito[1].salud}`
+        } else {
+            console.log('ha fallado el ataque')
         }
-        else {console.log('ha fallado el ataque')}
-        console.log(Math.random())
     }
     if (damage > 10) {
-        if (Math.random()>0.25) {
+        if (Math.random() > (0.25 + proteccionVarB)) {
             barraDeVidaB.style.width = `${arreglito[1].salud-damage}px`
-            arreglito[1].salud -= damage
+            arreglito[1].salud -= damage + arreglito[0].ataque
             barraDeVidaB.innerHTML = `${arreglito[1].salud}`
+        } else {
+            console.log('ha fallado el ataque')
         }
-        else {console.log('ha fallado el ataque')}
-        console.log(Math.random())
     }
+    proteccionVarA = 0
 }
 let movEnEspera = []
 let movRecibido = []
@@ -438,27 +475,23 @@ const atqEspBotonB = document.getElementById('ataque-esp-b')
 atqBotonA.addEventListener('click', () => {
     if (movEnEspera.length < 1) {
         movEnEspera.push(0)
-        console.log(movEnEspera)
     }
 })
 
 atqEspBotonA.addEventListener('click', () => {
     if (movEnEspera.length < 1) {
         movEnEspera.push(1)
-        console.log(movEnEspera)
     }
 })
 atqBotonB.addEventListener('click', () => {
     if (movEnEspera.length == 1) {
         movEnEspera.push(0)
-        console.log(movEnEspera)
     }
 })
 
 atqEspBotonB.addEventListener('click', () => {
     if (movEnEspera.length == 1) {
         movEnEspera.push(1)
-        console.log(movEnEspera)
     }
 })
 form.onsubmit = (a) => {
@@ -471,12 +504,17 @@ form.onsubmit = (a) => {
     movRecibido = movEnEspera
     movEnEspera = []
     if (movRecibido.length == 2 && arreglito.length == 2) {
+        console.log(proteccionVarB)
+        console.log(proteccionVarA)
         switch (movRecibido[0]) {
             case 0:
                 saludGestionB(10)
                 break;
             case 1:
                 saludGestionB(15)
+                break;
+            case 2:
+                saludGestionB(0)
                 break;
         }
         switch (movRecibido[1]) {
@@ -485,6 +523,9 @@ form.onsubmit = (a) => {
                 break;
             case 1:
                 saludGestionA(15)
+                break;
+            case 2:
+                saludGestionA(0)
                 break;
         }
     }
