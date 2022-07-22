@@ -37,6 +37,17 @@ const noke25 = new Carta('Mebemo', 'lucha', 10, 10)
 const noke26 = new Carta('Lipoen', 'lucha', 11, 11)
 const noke27 = new Carta('Fiuplo', 'lucha', 9, 9)
 
+const ganadoresArray = []
+
+const LocalStorageFn = () => {
+    if (localStorage.length>0) {
+        for (let i = 0; i < localStorage.length; i++) {
+            ganadoresArray.push(localStorage.getItem(`campeon${i}`))
+        }
+    }
+}
+LocalStorageFn()
+
 const elementalSync = (x, y, a, b, c, d) => {
     if (x.atributo == a) {
         if (y.atributo == b) {
@@ -90,65 +101,19 @@ const elemental = (x, y) => {
     }
     return resultado
 }
-
-
-
-const puntos1 = []
-const puntos2 = []
-const fraseo = []
-
-const aporahora = (x, y) => {
-    switch (atqVsAtq2(x, y)) {
-        case x:
-            for (let i = 0; i < atqVsAtq(x, y); i++) {
-                puntos1.push(atqVsAtq2(x, y).nombre)
-            }
-            fraseo.push(x.nombre + ' tiene mas ataque!!')
-            break;
-
-        case y:
-            for (let i = 0; i < atqVsAtq(x, y); i++) {
-                puntos2.push(y.nombre)
-            }
-            fraseo.push(y.nombre + ' tiene mas ataque!!')
-            break;
-        case 0:
-            fraseo.push(x.nombre + ' y ' + y.nombre + ' tienen el mismo ataque!')
-            break
+let puntosElemA = 0
+let puntosElemB = 0
+const elementalTransf = () => {
+    if (elemental(arreglito[0], arreglito[1]) == arreglito[0]) {
+        puntosElemA = (5)
     }
-    switch (dfsVsDfs2(x, y)) {
-        case x:
-            for (let i = 0; i < (dfsVsDfs(x, y) - 1); i++) {
-                puntos1.push(dfsVsDfs2(x, y).nombre)
-            }
-            fraseo.push(x.nombre + ' tiene mas defensa!!')
-            break;
-        case y:
-            for (let i = 0; i < dfsVsDfs(x, y); i++) {
-                puntos2.push(y.nombre)
-            }
-            fraseo.push(y.nombre + ' tiene mas defensa!!')
-            break;
-        case 0:
-            fraseo.push(x.nombre + ' y ' + y.nombre + ' tienen la misma defensa!')
-            break
-    }
-    switch (elemental(x, y) == x) {
-        case true:
-            for (let i = 0; i < 5; i++) {
-                puntos1.push(elemental(x, y).nombre)
-            }
-            break;
-
-        case false:
-            if (elemental(x, y) == y) {
-                for (let i = 0; i < 5; i++) {
-                    puntos2.push(y.nombre)
-                }
-            } else {}
-            break;
+    if (elemental(arreglito[0], arreglito[1]) == arreglito[1]) {
+        puntosElemB = (5)
     }
 }
+
+const fraseo = []
+
 
 const form = document.getElementById('form')
 const elementos = document.getElementsByTagName('#form input')
@@ -216,7 +181,6 @@ cambioColorStorage = []
 function cambioColor(elemento) {
     if (cambioColorStorage.length < 2) {
         cambioColorStorage.push(elemento)
-
     }
 }
 
@@ -234,11 +198,14 @@ function cambioColor2(elemento) {
         cambioColorStorage[1].style.backgroundColor = "rgba(233, 211, 14, 0.3)"
     }
     if (arreglito.length < 2) {
-        controlesA.style.display = 'block'
+        controlesA.style.display = 'flex'
+        textoConsola.innerHTML = '<li>'+ arreglito[0].nombre + '</li>'
     }
     if (arreglito.length == 2) {
-        controlesB.style.display = 'block'
+        controlesB.style.display = 'flex'
+        textoConsola.innerHTML = '<li>'+ arreglito[0].nombre +' vs '+ arreglito[1].nombre +'</li>'
     }
+
 }
 
 boton1.addEventListener('click', () => {
@@ -378,7 +345,6 @@ boton27.addEventListener('click', () => {
     }
 })
 
-let textoConsola = document.getElementById('text')
 
 
 let barraDeVidaA = document.getElementById('barra-de-vida-a')
@@ -391,12 +357,6 @@ barraDeVidaB.style.width = '100px'
 barraDeVidaB.style.backgroundColor = 'red'
 /*+++++++++++++++++++++++++++++++ */
 
-
-
-
-
-
-/*+++++++++++++++++++++++++++++++ */
 let proteccionVarA = 0
 let proteccionVarB = 0
 const protBotonA = document.getElementById('protegerse-a')
@@ -416,48 +376,98 @@ protBotonB.addEventListener('click', () => {
 })
 
 
+let textoConsola = document.getElementById('text')
+
+const deselecionarJs = () => {
+    controlesA.style.display = 'none'
+    controlesB.style.display = 'none'
+    arreglito[0].salud = 100
+    arreglito[1].salud = 100
+    barraDeVidaA.innerHTML = `100`
+    barraDeVidaB.innerHTML = `100`
+    barraDeVidaA.style.width = `${arreglito[0].salud}px`
+    barraDeVidaB.style.width = `${arreglito[1].salud}px`
+    arreglito.splice(0, 2)
+    cambioColorStorage[0].style.backgroundColor = "transparent"
+    cambioColorStorage[1].style.backgroundColor = "transparent"
+    cambioColorStorage.splice(0, 2)
+}
+const deselecionar = () => {
+    deselecionarJs()
+    textoConsola.innerHTML = ''
+}
+const ganadora = () => {
+    if (arreglito[0].salud <= 0 || arreglito[1].salud <= 0) {
+        if (arreglito[0].salud <= 0 && arreglito[1].salud <= 0) {
+            textoConsola.innerHTML = '<li>Ha ganado ' + arreglito[0].nombre + '!</li>'
+        } else {
+            if (arreglito[0].salud <= 0) {
+                textoConsola.innerHTML = '<li>Ha ganado ' + arreglito[1].nombre + '!</li>'
+                localStorage.setItem(`campeon${ganadoresArray.length}`, `${arreglito[1].nombre}`)
+            }
+            if (arreglito[1].salud <= 0) {
+                textoConsola.innerHTML = '<li>Ha ganado ' + arreglito[0].nombre + '!</li>'
+                localStorage.setItem(`campeon${ganadoresArray.length}`, `${arreglito[0].nombre}`)
+            }
+        }
+        deselecionarJs()
+
+    }
+}
+
+
+    let ganadoresFinal = ganadoresArray.map(item =>{
+        return '<li>'+ item +'</li>'
+    })
+
+const campeonesList = document.getElementById('campeones-list')
+const loadCampeones = () => {
+    campeonesList.innerHTML = ganadoresFinal.join('')
+}
+loadCampeones()
+
+
 function saludGestionA(damage) {
     if (damage == 10) {
         if (Math.random() > (0.1 + proteccionVarA)) {
             barraDeVidaA.style.width = `${arreglito[0].salud-damage}px`
-            arreglito[0].salud -= damage + arreglito[1].ataque
+            arreglito[0].salud -= damage + (arreglito[1].ataque / 2)
             barraDeVidaA.innerHTML = `${arreglito[0].salud}`
         } else {
-            console.log('ha fallado el ataque')
+            textoConsola.innerHTML += '<li>' + arreglito[1].nombre + ' Ha fallado el ataque!!</li>'
         }
 
     }
     if (damage > 10) {
         if (Math.random() > (0.25 + proteccionVarA)) {
             barraDeVidaA.style.width = `${arreglito[0].salud-damage}px`
-            arreglito[0].salud -= damage + arreglito[1].ataque
+            arreglito[0].salud -= damage + (arreglito[1].ataque / 2)
             barraDeVidaA.innerHTML = `${arreglito[0].salud}`
         } else {
-            console.log('ha fallado el ataque')
+            textoConsola.innerHTML += '<li>' + arreglito[1].nombre + ' Ha fallado el ataque!!</li>'
         }
 
     }
     proteccionVarB = 0
 }
 
-
 function saludGestionB(damage) {
     if (damage == 10) {
         if (Math.random() > (0.1 + proteccionVarB)) {
             barraDeVidaB.style.width = `${arreglito[1].salud-damage}px`
-            arreglito[1].salud -= damage + arreglito[0].ataque
+            arreglito[1].salud -= damage + (arreglito[0].ataque / 2)
             barraDeVidaB.innerHTML = `${arreglito[1].salud}`
         } else {
-            console.log('ha fallado el ataque')
+            textoConsola.innerHTML += '<li>' + arreglito[0].nombre + ' Ha fallado el ataque!!</li>'
         }
     }
     if (damage > 10) {
         if (Math.random() > (0.25 + proteccionVarB)) {
             barraDeVidaB.style.width = `${arreglito[1].salud-damage}px`
-            arreglito[1].salud -= damage + arreglito[0].ataque
+            arreglito[1].salud -= damage + (arreglito[0].ataque / 2)
             barraDeVidaB.innerHTML = `${arreglito[1].salud}`
         } else {
-            console.log('ha fallado el ataque')
+            textoConsola.innerHTML += '<li>' + arreglito[0].nombre + ' Ha fallado el ataque!!</li>'
         }
     }
     proteccionVarA = 0
@@ -496,13 +506,10 @@ atqEspBotonB.addEventListener('click', () => {
 })
 form.onsubmit = (a) => {
     a.preventDefault()
-    //window.scrollTo(0, document.body.scrollHeight)
-    /*cambioColorStorage[0].style.backgroundColor = "transparent"
-    cambioColorStorage[1].style.backgroundColor = "transparent"*/
-    /*----------------------*/
-    cambioColorStorage.splice(0, 2)
+    textoConsola.innerHTML = ''
     movRecibido = movEnEspera
     movEnEspera = []
+    elementalTransf()
     if (movRecibido.length == 2 && arreglito.length == 2) {
         console.log(proteccionVarB)
         console.log(proteccionVarA)
@@ -511,7 +518,7 @@ form.onsubmit = (a) => {
                 saludGestionB(10)
                 break;
             case 1:
-                saludGestionB(15)
+                saludGestionB(15 + puntosElemA)
                 break;
             case 2:
                 saludGestionB(0)
@@ -522,16 +529,14 @@ form.onsubmit = (a) => {
                 saludGestionA(10)
                 break;
             case 1:
-                saludGestionA(15)
+                saludGestionA(15 + puntosElemB)
                 break;
             case 2:
                 saludGestionA(0)
                 break;
         }
     }
-    /*---------------------- */
-    puntos1.splice(0, puntos1.length)
-    puntos2.splice(0, puntos2.length)
-    fraseo.splice(0, fraseo.length)
-
+    ganadora()
+    puntosElemB = 0
+    puntosElemA = 0
 }

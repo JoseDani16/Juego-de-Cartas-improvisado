@@ -32,6 +32,16 @@
             <div id="barra-de-vida-b" class="barra-de-vida"></div>
         </div>
     </div>
+    <div class="important-btns">
+        <div id="enviar">
+            <form action="" id="form">
+                <input type="submit" class="activador" value="listo">
+            </form>
+        </div>
+        <div id="deseleccionador">
+            <button class="activador" id="deselecionador" onclick="deselecionar()">Descartar Nokemons</button>
+        </div>
+    </div>
     <div class="consola">
         <ul id="text">
 
@@ -147,10 +157,9 @@
 
         </div>
     </div>
-    <div id="enviar">
-        <form action="" id="form">
-            <input type="submit" class="activador" value="listo">
-        </form>
+    <div class="campeones">
+        <h3>Lista de campeones</h3>
+        <ul id="campeones-list"></ul>
     </div>
 </body>
 <script src="js/main.js"></script>

@@ -2,17 +2,23 @@
     margin: 0;
     padding: 0;
 }
+
 body {
     background-color: black;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     flex-wrap: wrap;
 }
+
 h1 {
     text-shadow: 1px 1px 5px whitesmoke;
     width: 100%;
 }
-h1, h2 {
+
+h1,
+h2,
+h3 {
     margin: 10px 5px 5px 5px;
     color: rgb(134, 221, 3);
     font-family: 'Trispace', sans-serif;
@@ -22,11 +28,12 @@ h1, h2 {
 .mazo {
     background-color: black;
     display: flex;
-    flex-direction:row;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 }
+
 .carta {
     background-color: black;
     width: 90px;
@@ -43,12 +50,15 @@ h1, h2 {
     transition: all 0.5s 0.05s;
     border-radius: 15px;
 }
+
 .carta-int:hover {
     background-color: rgba(255, 255, 255, 0.089);
 }
+
 .xxx {
     color: rgba(233, 211, 14, 0.473);
 }
+
 .activador {
     width: 110px;
     height: 45px;
@@ -62,43 +72,70 @@ h1, h2 {
     transition: all 0.2s;
 
 }
-#enviar {
-    position: sticky;
-    bottom: 0px;
+.campeones ul{
+    display: flex;
+    flex-direction: row;
 }
+.campeones li {
+    margin: 15px ;
+}
+.important-btns {
+    display: flex;
+}
+#deseleccionador {
+    display: inline;
+    margin: 15px;
+}
+
+#enviar {
+    display: inline;
+    margin: 15px;
+}
+
 .activador:hover {
     background-color: rgb(30, 30, 30);
     cursor: pointer;
 }
+
 .consola {
     background-color: black;
-    min-height: 100px;
     width: 100%;
     display: flex;
     justify-content: center;
 }
+
 .controles {
     display: flex;
+    justify-content: space-around;
 }
+
 .controles-a {
     margin: 10px;
+    display: flex;
+    flex-direction: column;
 }
+
 .controles-b {
     margin: 10px;
+    display: flex;
+    flex-direction: column;
 }
+
 .barra-de-vida {
-margin: auto;
-text-align: center;
-border-radius: 15px;
+    margin: auto;
+    text-align: center;
+    border-radius: 15px;
 }
+
 ul {
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-li{
-    margin: 10px 0 10px 0 ;
+
+li {
+    margin: 10px 0 10px 0;
     text-transform: capitalize;
     color: rgb(134, 221, 3);
     font-family: 'Trispace', sans-serif;
@@ -107,163 +144,189 @@ li{
 
 #boton1 {
     background-image: url(../nokemonsimg/1.png);
-    background-size:contain;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
+
 #boton2 {
     background-image: url(../nokemonsimg/2.png);
-    background-size:contain;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
+
 #boton3 {
     background-image: url(../nokemonsimg/3.png);
-    background-size:contain;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
+
 #boton4 {
     background-image: url(../nokemonsimg/7.png);
-    background-size:contain;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
+
 #boton5 {
     background-image: url(../nokemonsimg/8.png);
-    background-size:contain;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
+
 #boton6 {
     background-image: url(../nokemonsimg/9.png);
-    background-size:contain;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
+
 #boton7 {
     background-image: url(../nokemonsimg/10.png);
-    background-size:contain;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
+
 #boton8 {
     background-image: url(../nokemonsimg/11.png);
-    background-size:contain;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
+
 #boton9 {
     background-image: url(../nokemonsimg/12.png);
-    background-size:contain;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
+
 #boton10 {
     background-image: url(../nokemonsimg/16.png);
-    background-size:contain;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
+
 #boton11 {
     background-image: url(../nokemonsimg/17.png);
-    background-size:contain;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
+
 #boton12 {
     background-image: url(../nokemonsimg/18.png);
-    background-size:contain;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
+
 #boton13 {
     background-image: url(../nokemonsimg/13.png);
-    background-size:contain;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
+
 #boton14 {
     background-image: url(../nokemonsimg/14.png);
-    background-size:contain;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
+
 #boton15 {
     background-image: url(../nokemonsimg/15.png);
-    background-size:contain;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
+
 #boton16 {
     background-image: url(../nokemonsimg/19.png);
-    background-size:contain;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
+
 #boton17 {
     background-image: url(../nokemonsimg/20.png);
-    background-size:contain;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
+
 #boton18 {
     background-image: url(../nokemonsimg/21.png);
-    background-size:contain;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
+
 #boton19 {
     background-image: url(../nokemonsimg/4.png);
-    background-size:contain;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
+
 #boton20 {
     background-image: url(../nokemonsimg/5.png);
-    background-size:contain;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
+
 #boton21 {
     background-image: url(../nokemonsimg/6.png);
-    background-size:contain;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
+
 #boton22 {
     background-image: url(../nokemonsimg/25.png);
-    background-size:contain;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
+
 #boton23 {
     background-image: url(../nokemonsimg/26.png);
-    background-size:contain;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
+
 #boton24 {
     background-image: url(../nokemonsimg/27.png);
-    background-size:contain;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
+
 #boton25 {
     background-image: url(../nokemonsimg/22.png);
-    background-size:contain;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
+
 #boton26 {
     background-image: url(../nokemonsimg/23.png);
-    background-size:contain;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
+
 #boton27 {
     background-image: url(../nokemonsimg/24.png);
-    background-size:contain;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
