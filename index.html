@@ -16,151 +16,159 @@
 </head>
 
 <body>
-    <h1>Nokemon</h1>
-    <h2>Elija dos Nokemon para luchar, defina sus movimientos y dele a -Listo-!!</h2>
-    <div class="controles">
-        <div class="controles-a" id="controles-a">
-            <button id="ataque-normal-a" class="activador">ataque</button>
-            <button id="ataque-esp-a" class="activador">ataque esp</button>
-            <button id="protegerse-a" class="activador">protegerse</button>
-            <div id="barra-de-vida-a" class="barra-de-vida"></div>
+    <header>
+        <h1>Nokemon</h1>
+        <h3>Elija dos Nokemon para luchar, defina sus movimientos y dele a Listo</h3>
+    </header>
+    <main>
+        <div class="contenedorCentrador">
+            <div class="controles">
+                <div class="controles-a" id="controles-a">
+                    <button id="ataque-normal-a" class="activador">ataque</button>
+                    <button id="ataque-esp-a" class="activador">ataque esp</button>
+                    <button id="protegerse-a" class="activador">protegerse</button>
+                    <div id="barra-de-vida-a" class="barra-de-vida"></div>
+                </div>
+                <div class="controles-b" id="controles-b">
+                    <button id="ataque-normal-b" class="activador">ataque</button>
+                    <button id="ataque-esp-b" class="activador">ataque esp</button>
+                    <button id="protegerse-b" class="activador">protegerse</button>
+                    <div id="barra-de-vida-b" class="barra-de-vida"></div>
+                </div>
+            </div>
         </div>
-        <div class="controles-b" id="controles-b">
-            <button id="ataque-normal-b" class="activador">ataque</button>
-            <button id="ataque-esp-b" class="activador">ataque esp</button>
-            <button id="protegerse-b" class="activador">protegerse</button>
-            <div id="barra-de-vida-b" class="barra-de-vida"></div>
+        <div class="important-btns">
+            <div id="enviar">
+                <form action="" id="form">
+                    <input type="submit" class="activador" value="listo">
+                </form>
+            </div>
+            <div id="deseleccionador">
+                <button class="activador" id="deselecionador" onclick="deselecionar()">Descartar Nokemons</button>
+            </div>
         </div>
-    </div>
-    <div class="important-btns">
-        <div id="enviar">
-            <form action="" id="form">
-                <input type="submit" class="activador" value="listo">
-            </form>
-        </div>
-        <div id="deseleccionador">
-            <button class="activador" id="deselecionador" onclick="deselecionar()">Descartar Nokemons</button>
-        </div>
-    </div>
-    <div class="consola">
-        <ul id="text">
+        <div class="consola">
+            <ul id="text">
 
-        </ul>
-    </div>
-    <div class="mazo">
-        <div id="carta1" onclick="cambioColor2(carta1)" class="carta">
-
-            <input type="button" value="" id="boton1" class="carta-int">
+            </ul>
         </div>
-        <div id="carta2" onclick="cambioColor2(carta2)" class="carta">
-            <input type="button" value="" id="boton2" class="carta-int">
+        <div class="mazo">
+            <div id="carta1" onclick="cambioColor2(carta1)" class="carta">
 
-        </div>
-        <div id="carta3" onclick="cambioColor2(carta3)" class="carta">
-            <input type="button" value="" id="boton3" class="carta-int">
+                <input type="button" value="" id="boton1" class="carta-int">
+            </div>
+            <div id="carta2" onclick="cambioColor2(carta2)" class="carta">
+                <input type="button" value="" id="boton2" class="carta-int">
 
-        </div>
-        <div id="carta4" onclick="cambioColor2(carta4)" class="carta">
-            <input type="button" value="" id="boton4" class="carta-int">
+            </div>
+            <div id="carta3" onclick="cambioColor2(carta3)" class="carta">
+                <input type="button" value="" id="boton3" class="carta-int">
 
-        </div>
-        <div id="carta5" onclick="cambioColor2(carta5)" class="carta">
-            <input type="button" value="" id="boton5" class="carta-int">
+            </div>
+            <div id="carta4" onclick="cambioColor2(carta4)" class="carta">
+                <input type="button" value="" id="boton4" class="carta-int">
 
-        </div>
-        <div id="carta6" onclick="cambioColor2(carta6)" class="carta">
-            <input type="button" value="" id="boton6" class="carta-int">
+            </div>
+            <div id="carta5" onclick="cambioColor2(carta5)" class="carta">
+                <input type="button" value="" id="boton5" class="carta-int">
 
-        </div>
-        <div id="carta7" onclick="cambioColor2(carta7)" class="carta">
-            <input type="button" value="" id="boton7" class="carta-int">
+            </div>
+            <div id="carta6" onclick="cambioColor2(carta6)" class="carta">
+                <input type="button" value="" id="boton6" class="carta-int">
 
-        </div>
-        <div id="carta8" onclick="cambioColor2(carta8)" class="carta">
-            <input type="button" value="" id="boton8" class="carta-int">
+            </div>
+            <div id="carta7" onclick="cambioColor2(carta7)" class="carta">
+                <input type="button" value="" id="boton7" class="carta-int">
 
-        </div>
-        <div id="carta9" onclick="cambioColor2(carta9)" class="carta">
-            <input type="button" value="" id="boton9" class="carta-int">
+            </div>
+            <div id="carta8" onclick="cambioColor2(carta8)" class="carta">
+                <input type="button" value="" id="boton8" class="carta-int">
 
-        </div>
-        <div id="carta10" onclick="cambioColor2(carta10)" class="carta">
-            <input type="button" value="" id="boton10" class="carta-int">
+            </div>
+            <div id="carta9" onclick="cambioColor2(carta9)" class="carta">
+                <input type="button" value="" id="boton9" class="carta-int">
 
-        </div>
-        <div id="carta11" onclick="cambioColor2(carta11)" class="carta">
-            <input type="button" value="" id="boton11" class="carta-int">
+            </div>
+            <div id="carta10" onclick="cambioColor2(carta10)" class="carta">
+                <input type="button" value="" id="boton10" class="carta-int">
 
-        </div>
-        <div id="carta12" onclick="cambioColor2(carta12)" class="carta">
-            <input type="button" value="" id="boton12" class="carta-int">
+            </div>
+            <div id="carta11" onclick="cambioColor2(carta11)" class="carta">
+                <input type="button" value="" id="boton11" class="carta-int">
 
-        </div>
-        <div id="carta13" onclick="cambioColor2(carta13)" class="carta">
-            <input type="button" value="" id="boton13" class="carta-int">
+            </div>
+            <div id="carta12" onclick="cambioColor2(carta12)" class="carta">
+                <input type="button" value="" id="boton12" class="carta-int">
 
-        </div>
-        <div id="carta14" onclick="cambioColor2(carta14)" class="carta">
-            <input type="button" value="" id="boton14" class="carta-int">
+            </div>
+            <div id="carta13" onclick="cambioColor2(carta13)" class="carta">
+                <input type="button" value="" id="boton13" class="carta-int">
 
-        </div>
-        <div id="carta15" onclick="cambioColor2(carta15)" class="carta">
-            <input type="button" value="" id="boton15" class="carta-int">
+            </div>
+            <div id="carta14" onclick="cambioColor2(carta14)" class="carta">
+                <input type="button" value="" id="boton14" class="carta-int">
 
-        </div>
-        <div id="carta16" onclick="cambioColor2(carta16)" class="carta">
-            <input type="button" value="" id="boton16" class="carta-int">
+            </div>
+            <div id="carta15" onclick="cambioColor2(carta15)" class="carta">
+                <input type="button" value="" id="boton15" class="carta-int">
 
-        </div>
-        <div id="carta17" onclick="cambioColor2(carta17)" class="carta">
-            <input type="button" value="" id="boton17" class="carta-int">
+            </div>
+            <div id="carta16" onclick="cambioColor2(carta16)" class="carta">
+                <input type="button" value="" id="boton16" class="carta-int">
 
-        </div>
-        <div id="carta18" onclick="cambioColor2(carta18)" class="carta">
-            <input type="button" value="" id="boton18" class="carta-int">
+            </div>
+            <div id="carta17" onclick="cambioColor2(carta17)" class="carta">
+                <input type="button" value="" id="boton17" class="carta-int">
 
-        </div>
-        <div id="carta19" onclick="cambioColor2(carta19)" class="carta">
-            <input type="button" value="" id="boton19" class="carta-int">
+            </div>
+            <div id="carta18" onclick="cambioColor2(carta18)" class="carta">
+                <input type="button" value="" id="boton18" class="carta-int">
 
-        </div>
-        <div id="carta20" onclick="cambioColor2(carta20)" class="carta">
-            <input type="button" value="" id="boton20" class="carta-int">
+            </div>
+            <div id="carta19" onclick="cambioColor2(carta19)" class="carta">
+                <input type="button" value="" id="boton19" class="carta-int">
 
-        </div>
-        <div id="carta21" onclick="cambioColor2(carta21)" class="carta">
-            <input type="button" value="" id="boton21" class="carta-int">
+            </div>
+            <div id="carta20" onclick="cambioColor2(carta20)" class="carta">
+                <input type="button" value="" id="boton20" class="carta-int">
 
-        </div>
-        <div id="carta22" onclick="cambioColor2(carta22)" class="carta">
-            <input type="button" value="" id="boton22" class="carta-int">
+            </div>
+            <div id="carta21" onclick="cambioColor2(carta21)" class="carta">
+                <input type="button" value="" id="boton21" class="carta-int">
 
-        </div>
-        <div id="carta23" onclick="cambioColor2(carta23)" class="carta">
-            <input type="button" value="" id="boton23" class="carta-int">
+            </div>
+            <div id="carta22" onclick="cambioColor2(carta22)" class="carta">
+                <input type="button" value="" id="boton22" class="carta-int">
 
-        </div>
-        <div id="carta24" onclick="cambioColor2(carta24)" class="carta">
-            <input type="button" value="" id="boton24" class="carta-int">
+            </div>
+            <div id="carta23" onclick="cambioColor2(carta23)" class="carta">
+                <input type="button" value="" id="boton23" class="carta-int">
 
-        </div>
-        <div id="carta25" onclick="cambioColor2(carta25)" class="carta">
-            <input type="button" value="" id="boton25" class="carta-int">
+            </div>
+            <div id="carta24" onclick="cambioColor2(carta24)" class="carta">
+                <input type="button" value="" id="boton24" class="carta-int">
 
-        </div>
-        <div id="carta26" onclick="cambioColor2(carta26)" class="carta">
-            <input type="button" value="" id="boton26" class="carta-int">
+            </div>
+            <div id="carta25" onclick="cambioColor2(carta25)" class="carta">
+                <input type="button" value="" id="boton25" class="carta-int">
 
-        </div>
-        <div id="carta27" onclick="cambioColor2(carta27)" class="carta">
-            <input type="button" value="" id="boton27" class="carta-int">
+            </div>
+            <div id="carta26" onclick="cambioColor2(carta26)" class="carta">
+                <input type="button" value="" id="boton26" class="carta-int">
 
+            </div>
+            <div id="carta27" onclick="cambioColor2(carta27)" class="carta">
+                <input type="button" value="" id="boton27" class="carta-int">
+
+            </div>
         </div>
-    </div>
-    <div class="campeones">
-        <h3>Lista de campeones</h3>
-        <ul id="campeones-list"></ul>
-    </div>
+    </main>
+    <footer>
+        <div class="campeones">
+            <h3>Lista de campeones</h3>
+            <ul id="campeones-list"></ul>
+        </div>
+    </footer>
 </body>
 <script src="js/main.js"></script>
 

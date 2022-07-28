@@ -40,7 +40,7 @@ const noke27 = new Carta('Fiuplo', 'lucha', 9, 9)
 const ganadoresArray = []
 
 const LocalStorageFn = () => {
-    if (localStorage.length>0) {
+    if (localStorage.length > 0) {
         for (let i = 0; i < localStorage.length; i++) {
             ganadoresArray.push(localStorage.getItem(`campeon${i}`))
         }
@@ -75,41 +75,22 @@ const elementalSync = (x, y, a, b, c, d) => {
 
 const elemental = (x, y) => {
     let resultado = null
-    if (elementalSync(x, y, 'agua', 'fuego', 'tierra')) {
-        resultado = elementalSync(x, y, 'agua', 'fuego', 'tierra')
-    }
-    if (elementalSync(x, y, 'planta', 'agua', 'tierra')) {
-        resultado = elementalSync(x, y, 'planta', 'agua', 'tierra')
-    }
-    if (elementalSync(x, y, 'fuego', 'planta', 'hielo')) {
-        resultado = elementalSync(x, y, 'fuego', 'planta', 'hielo')
-    }
-    if (elementalSync(x, y, 'lucha', 'normal', 'roca')) {
-        resultado = elementalSync(x, y, 'lucha', 'normal', 'roca')
-    }
-    if (elementalSync(x, y, 'roca', 'fuego', 'volador')) {
-        resultado = elementalSync(x, y, 'roca', 'fuego', 'volador')
-    }
-    if (elementalSync(x, y, 'volador', 'planta', 'lucha')) {
-        resultado = elementalSync(x, y, 'volador', 'planta', 'lucha')
-    }
-    if (elementalSync(x, y, 'hielo', 'planta', 'volador')) {
-        resultado = elementalSync(x, y, 'hielo', 'planta', 'volador')
-    }
-    if (elementalSync(x, y, 'tierra', 'roca', 'fuego')) {
-        resultado = elementalSync(x, y, 'tierra', 'roca', 'fuego')
-    }
+    elementalSync(x, y, 'agua', 'fuego', 'tierra') && (resultado = elementalSync(x, y, 'agua', 'fuego', 'tierra'))
+    elementalSync(x, y, 'planta', 'agua', 'tierra') && (resultado = elementalSync(x, y, 'planta', 'agua', 'tierra'))
+    elementalSync(x, y, 'fuego', 'planta', 'hielo') && (resultado = elementalSync(x, y, 'fuego', 'planta', 'hielo'))
+    elementalSync(x, y, 'lucha', 'normal', 'roca') && (resultado = elementalSync(x, y, 'lucha', 'normal', 'roca'))
+    elementalSync(x, y, 'roca', 'fuego', 'volador') && (resultado = elementalSync(x, y, 'roca', 'fuego', 'volador'))
+    elementalSync(x, y, 'volador', 'planta', 'lucha') && (resultado = elementalSync(x, y, 'volador', 'planta', 'lucha'))
+    elementalSync(x, y, 'hielo', 'planta', 'volador') && (resultado = elementalSync(x, y, 'hielo', 'planta', 'volador'))
+    elementalSync(x, y, 'tierra', 'roca', 'fuego') && (resultado = elementalSync(x, y, 'tierra', 'roca', 'fuego'))
     return resultado
 }
 let puntosElemA = 0
 let puntosElemB = 0
 const elementalTransf = () => {
-    if (elemental(arreglito[0], arreglito[1]) == arreglito[0]) {
-        puntosElemA = (5)
-    }
-    if (elemental(arreglito[0], arreglito[1]) == arreglito[1]) {
-        puntosElemB = (5)
-    }
+    elemental(arreglito[0], arreglito[1]) == arreglito[0] && (puntosElemA = (5))
+    elemental(arreglito[0], arreglito[1]) == arreglito[1] && (puntosElemB = (5))
+
 }
 
 const fraseo = []
@@ -179,9 +160,7 @@ const carta27 = document.getElementById('carta27')
 cambioColorStorage = []
 
 function cambioColor(elemento) {
-    if (cambioColorStorage.length < 2) {
-        cambioColorStorage.push(elemento)
-    }
+    cambioColorStorage.length < 2 && cambioColorStorage.push(elemento)
 }
 
 let controlesA = document.getElementById('controles-a')
@@ -189,160 +168,102 @@ let controlesB = document.getElementById('controles-b')
 controlesA.style.display = 'none'
 controlesB.style.display = 'none'
 
+
 function cambioColor2(elemento) {
     cambioColor(elemento)
-    if (cambioColorStorage.length == 1) {
-        cambioColorStorage[0].style.backgroundColor = "rgba(233, 211, 14, 0.3)"
-    }
-    if (cambioColorStorage.length == 2) {
-        cambioColorStorage[1].style.backgroundColor = "rgba(233, 211, 14, 0.3)"
-    }
+    cambioColorStorage.length == 1 && (cambioColorStorage[0].style.backgroundColor = "rgba(233, 211, 14, 0.3)")
+    cambioColorStorage.length == 2 && (cambioColorStorage[1].style.backgroundColor = "rgba(233, 211, 14, 0.3)")
     if (arreglito.length < 2) {
         controlesA.style.display = 'flex'
-        textoConsola.innerHTML = '<li>'+ arreglito[0].nombre + '</li>'
+        textoConsola.innerHTML = '<li>' + arreglito[0].nombre + '</li>'
     }
     if (arreglito.length == 2) {
         controlesB.style.display = 'flex'
-        textoConsola.innerHTML = '<li>'+ arreglito[0].nombre +' vs '+ arreglito[1].nombre +'</li>'
+        textoConsola.innerHTML = '<li>' + arreglito[0].nombre + ' vs ' + arreglito[1].nombre + '</li>'
     }
 
 }
 
 boton1.addEventListener('click', () => {
-    if (arreglito.length < 2) {
-        arreglito.push(noke1)
-    }
+    arreglito.length < 2 && arreglito.push(noke1)
 })
 boton2.addEventListener('click', () => {
-    if (arreglito.length < 2) {
-        arreglito.push(noke2)
-
-    }
+    arreglito.length < 2 && arreglito.push(noke2)
 })
 boton3.addEventListener('click', () => {
-    if (arreglito.length < 2) {
-        arreglito.push(noke3)
-    }
+    arreglito.length < 2 && arreglito.push(noke3)
 })
 boton4.addEventListener('click', () => {
-    if (arreglito.length < 2) {
-        arreglito.push(noke4)
-    }
+    arreglito.length < 2 && arreglito.push(noke4)
 })
 boton5.addEventListener('click', () => {
-    if (arreglito.length < 2) {
-        arreglito.push(noke5)
-    }
+    arreglito.length < 2 && arreglito.push(noke5)
 })
 boton6.addEventListener('click', () => {
-    if (arreglito.length < 2) {
-        arreglito.push(noke6)
-    }
+    arreglito.length < 2 && arreglito.push(noke6)
 })
 boton7.addEventListener('click', () => {
-    if (arreglito.length < 2) {
-        arreglito.push(noke7)
-    }
+    arreglito.length < 2 && arreglito.push(noke7)
 })
 boton8.addEventListener('click', () => {
-    if (arreglito.length < 2) {
-        arreglito.push(noke8)
-    }
+    arreglito.length < 2 && arreglito.push(noke8)
 })
 boton9.addEventListener('click', () => {
-    if (arreglito.length < 2) {
-        arreglito.push(noke9)
-    }
+    arreglito.length < 2 && arreglito.push(noke9)
 })
 boton10.addEventListener('click', () => {
-    if (arreglito.length < 2) {
-        arreglito.push(noke10)
-    }
+    arreglito.length < 2 && arreglito.push(noke10)
 })
 boton11.addEventListener('click', () => {
-    if (arreglito.length < 2) {
-        arreglito.push(noke11)
-    }
+    arreglito.length < 2 && arreglito.push(noke11)
 })
 boton12.addEventListener('click', () => {
-    if (arreglito.length < 2) {
-        arreglito.push(noke12)
-    }
+    arreglito.length < 2 && arreglito.push(noke12)
 })
 boton13.addEventListener('click', () => {
-    if (arreglito.length < 2) {
-        arreglito.push(noke13)
-    }
+    arreglito.length < 2 && arreglito.push(noke13)
 })
 boton14.addEventListener('click', () => {
-    if (arreglito.length < 2) {
-        arreglito.push(noke14)
-    }
+    arreglito.length < 2 && arreglito.push(noke14)
 })
 boton15.addEventListener('click', () => {
-    if (arreglito.length < 2) {
-        arreglito.push(noke15)
-    }
+    arreglito.length < 2 && arreglito.push(noke15)
 })
 boton16.addEventListener('click', () => {
-    if (arreglito.length < 2) {
-        arreglito.push(noke16)
-    }
+    arreglito.length < 2 && arreglito.push(noke16)
 })
 boton17.addEventListener('click', () => {
-    if (arreglito.length < 2) {
-        arreglito.push(noke17)
-    }
+    arreglito.length < 2 && arreglito.push(noke17)
 })
 boton18.addEventListener('click', () => {
-    if (arreglito.length < 2) {
-        arreglito.push(noke18)
-    }
+    arreglito.length < 2 && arreglito.push(noke18)
 })
 boton19.addEventListener('click', () => {
-    if (arreglito.length < 2) {
-        arreglito.push(noke19)
-    }
+    arreglito.length < 2 && arreglito.push(noke19)
 })
 boton20.addEventListener('click', () => {
-    if (arreglito.length < 2) {
-        arreglito.push(noke20)
-    }
+    arreglito.length < 2 && arreglito.push(noke20)
 })
 boton21.addEventListener('click', () => {
-    if (arreglito.length < 2) {
-        arreglito.push(noke21)
-    }
+    arreglito.length < 2 && arreglito.push(noke21)
 })
 boton22.addEventListener('click', () => {
-    if (arreglito.length < 2) {
-        arreglito.push(noke22)
-    }
+    arreglito.length < 2 && arreglito.push(noke22)
 })
 boton23.addEventListener('click', () => {
-    if (arreglito.length < 2) {
-        arreglito.push(noke23)
-    }
+    arreglito.length < 2 && arreglito.push(noke23)
 })
 boton24.addEventListener('click', () => {
-    if (arreglito.length < 2) {
-        arreglito.push(noke24)
-    }
+    arreglito.length < 2 && arreglito.push(noke24)
 })
 boton25.addEventListener('click', () => {
-    if (arreglito.length < 2) {
-        arreglito.push(noke25)
-    }
+    arreglito.length < 2 && arreglito.push(noke25)
 })
 boton26.addEventListener('click', () => {
-    if (arreglito.length < 2) {
-        arreglito.push(noke26)
-    }
+    arreglito.length < 2 && arreglito.push(noke26)
 })
 boton27.addEventListener('click', () => {
-    if (arreglito.length < 2) {
-        arreglito.push(noke27)
-    }
+    arreglito.length < 2 && arreglito.push(noke27)
 })
 
 
@@ -350,11 +271,11 @@ boton27.addEventListener('click', () => {
 let barraDeVidaA = document.getElementById('barra-de-vida-a')
 barraDeVidaA.innerHTML = `100`
 barraDeVidaA.style.width = '100px'
-barraDeVidaA.style.backgroundColor = 'red'
+barraDeVidaA.style.backgroundColor = 'crimson'
 let barraDeVidaB = document.getElementById('barra-de-vida-b')
 barraDeVidaB.innerHTML = `100`
 barraDeVidaB.style.width = '100px'
-barraDeVidaB.style.backgroundColor = 'red'
+barraDeVidaB.style.backgroundColor = 'crimson'
 /*+++++++++++++++++++++++++++++++ */
 
 let proteccionVarA = 0
@@ -382,14 +303,14 @@ const deselecionarJs = () => {
     controlesA.style.display = 'none'
     controlesB.style.display = 'none'
     arreglito[0].salud = 100
-    arreglito[1].salud = 100
+    arreglito.length > 1 && (arreglito[1].salud = 100)
     barraDeVidaA.innerHTML = `100`
     barraDeVidaB.innerHTML = `100`
     barraDeVidaA.style.width = `${arreglito[0].salud}px`
-    barraDeVidaB.style.width = `${arreglito[1].salud}px`
+    arreglito.length > 1 && (barraDeVidaB.style.width = `${arreglito[1].salud}px`)
     arreglito.splice(0, 2)
     cambioColorStorage[0].style.backgroundColor = "transparent"
-    cambioColorStorage[1].style.backgroundColor = "transparent"
+    arreglito.length > 1 && (cambioColorStorage[1].style.backgroundColor = "transparent")
     cambioColorStorage.splice(0, 2)
 }
 const deselecionar = () => {
@@ -416,9 +337,9 @@ const ganadora = () => {
 }
 
 
-    let ganadoresFinal = ganadoresArray.map(item =>{
-        return '<li>'+ item +'</li>'
-    })
+let ganadoresFinal = ganadoresArray.map(item => {
+    return '<li>' + item + '</li>'
+})
 
 const campeonesList = document.getElementById('campeones-list')
 const loadCampeones = () => {
@@ -483,26 +404,19 @@ const atqEspBotonB = document.getElementById('ataque-esp-b')
 
 
 atqBotonA.addEventListener('click', () => {
-    if (movEnEspera.length < 1) {
-        movEnEspera.push(0)
-    }
+    movEnEspera.length < 1 && movEnEspera.push(0)
 })
 
 atqEspBotonA.addEventListener('click', () => {
-    if (movEnEspera.length < 1) {
-        movEnEspera.push(1)
-    }
+    movEnEspera.length < 1 && movEnEspera.push(1)
 })
 atqBotonB.addEventListener('click', () => {
-    if (movEnEspera.length == 1) {
-        movEnEspera.push(0)
-    }
+    movEnEspera.length == 1 && movEnEspera.push(0)
+    
 })
 
 atqEspBotonB.addEventListener('click', () => {
-    if (movEnEspera.length == 1) {
-        movEnEspera.push(1)
-    }
+    movEnEspera.length == 1 && movEnEspera.push(1)
 })
 form.onsubmit = (a) => {
     a.preventDefault()
