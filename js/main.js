@@ -7,6 +7,12 @@ class Carta {
         this.salud = 100
     }
 }
+
+const music = new Audio('assets/music/musiquita.mp3');
+music.loop =true;
+const ruidito = new Audio('assets/music/ruidito.wav');
+ruidito.loop =false;
+
 let arreglito = []
 
 const noke1 = new Carta('Veyvur', 'agua', 11, 11)
@@ -180,6 +186,7 @@ function cambioColor2(elemento) {
     if (arreglito.length == 2) {
         controlesB.style.display = 'flex'
         textoConsola.innerHTML = '<li>' + arreglito[0].nombre + ' vs ' + arreglito[1].nombre + '</li>'
+        music.play();
     }
 
 }
@@ -308,10 +315,12 @@ const deselecionarJs = () => {
     barraDeVidaB.innerHTML = `100`
     barraDeVidaA.style.width = `${arreglito[0].salud}px`
     arreglito.length > 1 && (barraDeVidaB.style.width = `${arreglito[1].salud}px`)
-    arreglito.splice(0, 2)
     cambioColorStorage[0].style.backgroundColor = "transparent"
     arreglito.length > 1 && (cambioColorStorage[1].style.backgroundColor = "transparent")
+    arreglito.splice(0, 2)
     cambioColorStorage.splice(0, 2)
+    music.pause();
+    music.currentTime = 0;
 }
 const deselecionar = () => {
     deselecionarJs()
@@ -425,8 +434,7 @@ form.onsubmit = (a) => {
     movEnEspera = []
     elementalTransf()
     if (movRecibido.length == 2 && arreglito.length == 2) {
-        console.log(proteccionVarB)
-        console.log(proteccionVarA)
+        ruidito.play()
         switch (movRecibido[0]) {
             case 0:
                 saludGestionB(10)
