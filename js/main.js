@@ -9,9 +9,9 @@ class Carta {
 }
 
 const music = new Audio('assets/music/musiquita.mp3');
-music.loop =true;
+music.loop = true;
 const ruidito = new Audio('assets/music/ruidito.wav');
-ruidito.loop =false;
+ruidito.loop = false;
 
 let arreglito = []
 
@@ -307,16 +307,22 @@ protBotonB.addEventListener('click', () => {
 let textoConsola = document.getElementById('text')
 
 const deselecionarJs = () => {
+    efectividadAtqEspA = 0.25
+    efectividadAtqEspB = 0.25
     controlesA.style.display = 'none'
     controlesB.style.display = 'none'
-    arreglito[0].salud = 100
-    arreglito.length > 1 && (arreglito[1].salud = 100)
     barraDeVidaA.innerHTML = `100`
     barraDeVidaB.innerHTML = `100`
-    barraDeVidaA.style.width = `${arreglito[0].salud}px`
-    arreglito.length > 1 && (barraDeVidaB.style.width = `${arreglito[1].salud}px`)
-    cambioColorStorage[0].style.backgroundColor = "transparent"
-    arreglito.length > 1 && (cambioColorStorage[1].style.backgroundColor = "transparent")
+    if (arreglito.length > 0) {
+        arreglito[0].salud = 100
+        barraDeVidaA.style.width = `${arreglito[0].salud}px`
+        cambioColorStorage[0].style.backgroundColor = "transparent"
+    }
+    if (arreglito.length > 1) {
+        arreglito[1].salud = 100
+        barraDeVidaB.style.width = `${arreglito[1].salud}px`
+        cambioColorStorage[1].style.backgroundColor = "transparent"
+    }
     arreglito.splice(0, 2)
     cambioColorStorage.splice(0, 2)
     music.pause();
@@ -329,14 +335,66 @@ const deselecionar = () => {
 const ganadora = () => {
     if (arreglito[0].salud <= 0 || arreglito[1].salud <= 0) {
         if (arreglito[0].salud <= 0 && arreglito[1].salud <= 0) {
-            textoConsola.innerHTML = '<li>Ha ganado ' + arreglito[0].nombre + '!</li>'
+            Swal.fire({
+                title: `Ambos nokemon han caído!`,
+                icon: 'warning',
+                background: 'rgba(255, 238, 0, 0.5)',
+                backdrop: true,
+                timer: 6000,
+                timerProgressBar: true,
+                allowOutsideClick: true,
+                allowEscapeKey: false,
+                allowEnterKey: false,
+                stopKeydownPropagation: true,
+                customClass: {
+                    title: 'fuente-pred',
+                    popup: 'popup-class',
+                },
+                showConfirmButton: false,
+                showCancelButton: false,
+            });
         } else {
             if (arreglito[0].salud <= 0) {
-                textoConsola.innerHTML = '<li>Ha ganado ' + arreglito[1].nombre + '!</li>'
+                Swal.fire({
+                    title: `${arreglito[0].nombre} ha caídoa, ${arreglito[1].nombre} ganó el combate`,
+                    icon: 'warning',
+                    background: 'rgba(255, 238, 0, 0.5)',
+                    backdrop: true,
+                    timer: 6000,
+                    timerProgressBar: true,
+                    allowOutsideClick: true,
+                    allowEscapeKey: false,
+                    allowEnterKey: false,
+                    stopKeydownPropagation: true,
+                    customClass: {
+                        title: 'fuente-pred',
+                        popup: 'popup-class',
+                    },
+                    showConfirmButton: false,
+                    showCancelButton: false,
+                });
                 localStorage.setItem(`campeon${ganadoresArray.length}`, `${arreglito[1].nombre}`)
             }
             if (arreglito[1].salud <= 0) {
-                textoConsola.innerHTML = '<li>Ha ganado ' + arreglito[0].nombre + '!</li>'
+
+                Swal.fire({
+                    title: `${arreglito[1].nombre} ha caídoa, ${arreglito[0].nombre} ganó el combate`,
+                    icon: 'warning',
+                    background: 'rgba(255, 238, 0, 0.5)',
+                    backdrop: true,
+                    timer: 6000,
+                    timerProgressBar: true,
+                    allowOutsideClick: true,
+                    allowEscapeKey: false,
+                    allowEnterKey: false,
+                    stopKeydownPropagation: true,
+                    customClass: {
+                        title: 'fuente-pred',
+                        popup: 'popup-class',
+                    },
+                    showConfirmButton: false,
+                    showCancelButton: false,
+                });
                 localStorage.setItem(`campeon${ganadoresArray.length}`, `${arreglito[0].nombre}`)
             }
         }
@@ -344,7 +402,6 @@ const ganadora = () => {
 
     }
 }
-
 
 let ganadoresFinal = ganadoresArray.map(item => {
     return '<li>' + item + '</li>'
@@ -355,7 +412,8 @@ const loadCampeones = () => {
     campeonesList.innerHTML = ganadoresFinal.join('')
 }
 loadCampeones()
-
+let efectividadAtqEspA = 0.25
+let efectividadAtqEspB = 0.25
 
 function saludGestionA(damage) {
     if (damage == 10) {
@@ -369,7 +427,7 @@ function saludGestionA(damage) {
 
     }
     if (damage > 10) {
-        if (Math.random() > (0.25 + proteccionVarA)) {
+        if (Math.random() > (efectividadAtqEspB + proteccionVarA)) {
             barraDeVidaA.style.width = `${arreglito[0].salud-damage}px`
             arreglito[0].salud -= damage + (arreglito[1].ataque / 2)
             barraDeVidaA.innerHTML = `${arreglito[0].salud}`
@@ -392,7 +450,7 @@ function saludGestionB(damage) {
         }
     }
     if (damage > 10) {
-        if (Math.random() > (0.25 + proteccionVarB)) {
+        if (Math.random() > (efectividadAtqEspA + proteccionVarB)) {
             barraDeVidaB.style.width = `${arreglito[1].salud-damage}px`
             arreglito[1].salud -= damage + (arreglito[0].ataque / 2)
             barraDeVidaB.innerHTML = `${arreglito[1].salud}`
@@ -414,18 +472,21 @@ const atqEspBotonB = document.getElementById('ataque-esp-b')
 
 atqBotonA.addEventListener('click', () => {
     movEnEspera.length < 1 && movEnEspera.push(0)
+    efectividadAtqEspA > 0.19 && (efectividadAtqEspA -= 0.17)
 })
 
 atqEspBotonA.addEventListener('click', () => {
     movEnEspera.length < 1 && movEnEspera.push(1)
+    efectividadAtqEspA < 0.9 && (efectividadAtqEspA += 0.2)
 })
 atqBotonB.addEventListener('click', () => {
     movEnEspera.length == 1 && movEnEspera.push(0)
-    
+    efectividadAtqEspB > 0.19 && (efectividadAtqEspB -= 0.17)
 })
 
 atqEspBotonB.addEventListener('click', () => {
     movEnEspera.length == 1 && movEnEspera.push(1)
+    efectividadAtqEspA < 0.9 && (efectividadAtqEspB += 0.2)
 })
 form.onsubmit = (a) => {
     a.preventDefault()

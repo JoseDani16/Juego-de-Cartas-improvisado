@@ -54,6 +54,14 @@ h3 {
     width: 100%;
 }
 
+.fuente-pred{
+    font-family: ketchum;
+    color: rgb(220, 20, 60);
+}
+.popup-class {
+    border-radius: 15px;
+}
+
 
 .mazo {
     background-color: rgba(235, 231, 231, 0.075);
