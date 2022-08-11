@@ -1,4 +1,4 @@
-class Carta {
+    class Carta {
     constructor(nombre, atributo, ataque, defensa) {
         this.nombre = nombre
         this.atributo = atributo
@@ -7,14 +7,6 @@ class Carta {
         this.salud = 100
     }
 }
-
-const music = new Audio('assets/music/musiquita.mp3');
-music.loop = true;
-const ruidito = new Audio('assets/music/ruidito.wav');
-ruidito.loop = false;
-
-let arreglito = []
-
 const noke1 = new Carta('Veyvur', 'agua', 11, 11)
 const noke2 = new Carta('Roxaen', 'agua', 16, 6)
 const noke3 = new Carta('Fauhye', 'agua', 11, 13)
@@ -42,6 +34,15 @@ const noke24 = new Carta('Heifai', 'volador', 10, 10)
 const noke25 = new Carta('Mebemo', 'lucha', 10, 10)
 const noke26 = new Carta('Lipoen', 'lucha', 11, 11)
 const noke27 = new Carta('Fiuplo', 'lucha', 9, 9)
+
+
+const music = new Audio('assets/music/musiquita.mp3');
+music.loop = true;
+const ruidito = new Audio('assets/music/ruidito.wav');
+ruidito.loop = false;
+
+let arreglito = []
+
 
 const ganadoresArray = []
 
@@ -133,34 +134,6 @@ const boton24 = document.getElementById('boton24')
 const boton25 = document.getElementById('boton25')
 const boton26 = document.getElementById('boton26')
 const boton27 = document.getElementById('boton27')
-const carta1 = document.getElementById('carta1')
-const carta2 = document.getElementById('carta2')
-const carta3 = document.getElementById('carta3')
-const carta4 = document.getElementById('carta4')
-const carta5 = document.getElementById('carta5')
-const carta6 = document.getElementById('carta6')
-const carta7 = document.getElementById('carta7')
-const carta8 = document.getElementById('carta8')
-const carta9 = document.getElementById('carta9')
-const carta10 = document.getElementById('carta10')
-const carta11 = document.getElementById('carta11')
-const carta12 = document.getElementById('carta12')
-const carta13 = document.getElementById('carta13')
-const carta14 = document.getElementById('carta14')
-const carta15 = document.getElementById('carta15')
-const carta16 = document.getElementById('carta16')
-const carta17 = document.getElementById('carta17')
-const carta18 = document.getElementById('carta18')
-const carta19 = document.getElementById('carta19')
-const carta20 = document.getElementById('carta20')
-const carta21 = document.getElementById('carta21')
-const carta22 = document.getElementById('carta22')
-const carta23 = document.getElementById('carta23')
-const carta24 = document.getElementById('carta24')
-const carta25 = document.getElementById('carta25')
-const carta26 = document.getElementById('carta26')
-const carta27 = document.getElementById('carta27')
-
 
 
 cambioColorStorage = []

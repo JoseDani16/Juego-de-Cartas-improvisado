@@ -1,0 +1,138 @@
+{"results":
+    [
+        {
+        "nombre": "Veyvur",
+        "atributo": "agua",
+        "sprite": "../nokemonsimg/1.png"
+    },
+    {
+        "nombre": "Roxaen",
+        "atributo": "agua",
+        "sprite": "../nokemonsimg/2.png"
+    },
+    {
+        "nombre": "Fauhye",
+        "atributo": "agua",
+        "sprite": "../nokemonsimg/3.png"
+    },
+    {
+        "nombre": "Sigian",
+        "atributo": "fuego",
+        "sprite": "../nokemonsimg/4.png"
+    },
+    {
+        "nombre": "Reypeo",
+        "atributo": "fuego",
+        "sprite": "../nokemonsimg/5.png"
+    },
+    {
+        "nombre": "Mouvay",
+        "atributo": "fuego",
+        "sprite": "../nokemonsimg/6.png"
+    },
+    {
+        "nombre": "Buzayn",
+        "atributo": "planta",
+        "sprite": "../nokemonsimg/7.png"
+    },
+    {
+        "nombre": "Sienpi",
+        "atributo": "planta",
+        "sprite": "../nokemonsimg/8.png"
+    },
+    {
+        "nombre": "Elcogi",
+        "atributo": "planta",
+        "sprite": "../nokemonsimg/9.png"
+    },
+    {
+        "nombre": "Zusaso",
+        "atributo": "roca",
+        "sprite": "../nokemonsimg/10.png"
+    },
+    {
+        "nombre": "Inorza",
+        "atributo": "roca",
+        "sprite": "../nokemonsimg/11.png"
+    },
+    {
+        "nombre": "Butelu",
+        "atributo": "roca",
+        "sprite": "../nokemonsimg/12.png"
+    },
+    {
+        "nombre": "Isvuos",
+        "atributo": "hielo",
+        "sprite": "../nokemonsimg/13.png"
+    },
+    {
+        "nombre": "Nocyon",
+        "atributo": "hielo",
+        "sprite": "../nokemonsimg/14.png"
+    },
+    {
+        "nombre": "Soisar",
+        "atributo": "hielo",
+        "sprite": "../nokemonsimg/15.png"
+    },
+    {
+        "nombre": "Woceyr",
+        "atributo": "normal",
+        "sprite": "../nokemonsimg/16.png"
+    },
+    {
+        "nombre": "Esleir",
+        "atributo": "normal",
+        "sprite": "../nokemonsimg/17.png"
+    },
+    {
+        "nombre": "Sarife",
+        "atributo": "normal",
+        "sprite": "../nokemonsimg/18.png"
+    },
+    {
+        "nombre": "Saomua",
+        "atributo": "tierra",
+        "sprite": "../nokemonsimg/19.png"
+    },
+    {
+        "nombre": "Favaol",
+        "atributo": "tierra",
+        "sprite": "../nokemonsimg/20.png"
+    },
+    {
+        "nombre": "Woecuo",
+        "atributo": "tierra",
+        "sprite": "../nokemonsimg/21.png"
+    },
+    {
+        "nombre": "Ceriti",
+        "atributo": "volador",
+        "sprite": "../nokemonsimg/22.png"
+    },
+    {
+        "nombre": "Tedoma",
+        "atributo": "volador",
+        "sprite": "../nokemonsimg/23.png"
+    },
+    {
+        "nombre": "Heifai",
+        "atributo": "volador",
+        "sprite": "../nokemonsimg/24.png"
+    },
+    {
+        "nombre": "Mebemo",
+        "atributo": "lucha",
+        "sprite": "../nokemonsimg/25.png"
+    },
+    {
+        "nombre": "Lipoen",
+        "atributo": "lucha",
+        "sprite": "../nokemonsimg/26.png"
+    },
+    {
+        "nombre": "Fiuplo",
+        "atributo": "lucha",
+        "sprite": "../nokemonsimg/27.png"
+    }
+]}

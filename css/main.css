@@ -44,7 +44,7 @@ h1 {
     padding: 50px 0 50px 0;
 }
 
-h3 {
+h3, .intoNokedex {
     text-shadow: 0px 0px 1px black;
     background-color: crimson;
     padding: 10px 0 10px 0;
@@ -53,7 +53,15 @@ h3 {
     text-align: center;
     width: 100%;
 }
-
+a {
+    text-decoration: none;
+    color:rgb(255, 208, 0);
+    font-size: xx-large;
+    padding: 10px;
+}
+a:hover {
+    background-color: rgba(0, 0, 0, 0.404);
+}
 .fuente-pred{
     font-family: ketchum;
     color: rgb(220, 20, 60);
@@ -198,7 +206,21 @@ h3 {
         opacity: 1;
     }
 }
+.textoNokedex {
+    font-family: ketchum;
+    display: inline;
+    text-align: center;
+}
+#nokemons-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 
+}
+.itemNokedex {
+    display: flex;
+    flex-direction: column-reverse;
+}
 .barra-de-vida {
     margin: auto;
     text-align: center;
